@@ -4,13 +4,13 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="agentsib_jsonrpc.transport.class">AgentSIB\JsonRpcBundle\Server\JsonRpcTransport</parameter>
+        <parameter key="agentsib_jsonrpc.serializer.class">AgentSIB\JsonRpcBundle\Server\JsonRpcSerializer</parameter>
         <parameter key="agentsib_jsonrpc.server.class">AgentSIB\JsonRpcBundle\Server\JsonRpcServer</parameter>
         <parameter key="agentsib_jsonrpc.router_loader.class">AgentSIB\JsonRpcBundle\Routing\JsonRpcLoader</parameter>
     </parameters>
 
     <services>
-        <service id="agentsib_jsonrpc.transport" class="%agentsib_jsonrpc.transport.class%">
+        <service id="agentsib_jsonrpc.serializer" class="%agentsib_jsonrpc.serializer.class%">
             <argument type="service" id="service_container" />
         </service>
 
@@ -20,7 +20,7 @@
 
         <service id="agentsib_jsonrpc.server" class="%agentsib_jsonrpc.server.class%">
             <argument type="service" id="service_container" />
-            <argument type="service" id="agentsib_jsonrpc.transport" />
+            <argument type="service" id="agentsib_jsonrpc.serializer" />
         </service>
     </services>
 

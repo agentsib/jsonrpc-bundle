@@ -3,8 +3,8 @@
 
 namespace AgentSIB\JsonRpcBundle\Server;
 
+use AgentSIB\JsonRpc\JsonRpcSerializerInterface;
 use AgentSIB\JsonRpc\JsonRpcServer AS BaseServer;
-use AgentSIB\JsonRpc\JsonRpcTransportInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class JsonRpcServer extends BaseServer
@@ -14,9 +14,9 @@ class JsonRpcServer extends BaseServer
 
     private $routing = array();
 
-    public function __construct (ContainerInterface $container, JsonRpcTransportInterface $transport)
+    public function __construct (ContainerInterface $container, JsonRpcSerializerInterface $serializer)
     {
-        parent::__construct($transport);
+        parent::__construct($serializer);
         $this->container = $container;
     }
 

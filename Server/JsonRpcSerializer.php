@@ -4,13 +4,14 @@
 namespace AgentSIB\JsonRpcBundle\Server;
 
 
+
 use AgentSIB\JsonRpc\JsonRpcException;
-use AgentSIB\JsonRpc\JsonRpcTransportInterface;
+use AgentSIB\JsonRpc\JsonRpcSerializerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class JsonRpcTransport implements JsonRpcTransportInterface
+class JsonRpcSerializer implements JsonRpcSerializerInterface
 {
     /** @var  ContainerInterface */
     private $container;
