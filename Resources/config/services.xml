@@ -19,7 +19,6 @@
         </service>
 
         <service id="json_rpc.serializer" class="%json_rpc.serializer.class%">
-            <argument type="service" id="service_container" />
         </service>
 
         <service id="json_rpc.router_loader" class="%json_rpc.router_loader.class%" public="false">

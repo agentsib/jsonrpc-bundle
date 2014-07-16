@@ -13,6 +13,7 @@ use AgentSIB\JsonRpc\Responses\JsonRpcResponse;
 use AgentSIB\JsonRpc\Transports\JsonRpcTransportInterface;
 use AgentSIB\JsonRpcBundle\Server\JsonRpcServer;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class InternalJsonRpcTransport implements JsonRpcTransportInterface{
 
