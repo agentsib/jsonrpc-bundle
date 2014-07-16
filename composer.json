@@ -24,6 +24,7 @@
     "autoload": {
         "psr-0": { "AgentSIB\\JsonRpcBundle\\": "" }
     },
+    "target-dir": "AgentSIB/JsonRpcBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.0-dev"

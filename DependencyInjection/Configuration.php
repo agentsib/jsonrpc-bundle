@@ -27,7 +27,7 @@ class Configuration implements ConfigurationInterface
                     ->prototype('array')
                         ->children()
                             ->scalarNode('serializer')->cannotBeEmpty()->defaultValue('AgentSIB\\JsonRpcBundle\\Server\\Serializers\\JsonRpcSerializer')->end()
-                            ->arrayNode('methods')
+                            ->arrayNode('services')
                                 ->prototype('array')
                                     ->children()
                                         ->scalarNode('namespace')->defaultValue('')->end()

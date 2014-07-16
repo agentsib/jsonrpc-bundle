@@ -32,10 +32,10 @@ class JsonRpcExtension extends Extension
                 $container->setParameter('json_rpc.serializer.class', $server['serializer']);
 
                 $definition = $container->findDefinition('json_rpc.server');
-                foreach ($server['methods'] AS $method) {
+                foreach ($server['services'] AS $service) {
                     $definition->addMethodCall('addService', array(
-                        $method['namespace'],
-                        $method['class']
+                        $service['namespace'],
+                        $service['class']
                     ));
                 }
             }
