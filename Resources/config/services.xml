@@ -7,9 +7,17 @@
         <parameter key="json_rpc.serializer.class">AgentSIB\JsonRpcBundle\Server\Serializers\JsonRpcSerializer</parameter>
         <parameter key="json_rpc.server.class">AgentSIB\JsonRpcBundle\Server\JsonRpcServer</parameter>
         <parameter key="json_rpc.router_loader.class">AgentSIB\JsonRpcBundle\Routing\JsonRpcLoader</parameter>
+        <parameter key="json_rpc.client.class">AgentSIB\JsonRpc\JsonRpcClient</parameter>
+        <parameter key="json_rpc.transport.internal.class">AgentSIB\JsonRpcBundle\Server\Transports\InternalJsonRpcTransport</parameter>
+        <parameter key="json_rpc.reflection.class">AgentSIB\JsonRpcBundle\Server\Reflection\JsonRpcReflection</parameter>
     </parameters>
 
     <services>
+
+        <service id="json_rpc.reflection" class="%json_rpc.reflection.class%">
+            <argument type="service" id="service_container" />
+        </service>
+
         <service id="json_rpc.serializer" class="%json_rpc.serializer.class%">
             <argument type="service" id="service_container" />
         </service>
@@ -18,9 +26,18 @@
             <tag name="routing.loader" />
         </service>
 
-        <service id="json_rpc.server" class="%json_rpc.server.class%">
+        <service id="json_rpc.server" class="%json_rpc.server.class%" abstract="true">
             <argument type="service" id="service_container" />
             <argument type="service" id="json_rpc.serializer" />
+            <argument type="service" id="json_rpc.reflection" />
+        </service>
+
+        <service id="json_rpc.transport.internal" class="%json_rpc.transport.internal.class%" public="false" abstract="true">
+            <argument type="service" id="json_rpc.server" />
+        </service>
+
+        <service id="json_rpc.client.internal" class="%json_rpc.client.class%" abstract="true">
+            <argument type="service" id="json_rpc.transport.internal" />
         </service>
 
     </services>

@@ -10,6 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 class JsonRpcController extends Controller{
 
     public function apiAction($resource, $version = 'v1') {
-        return $this->container->get('json_rpc.server')->process($this->getRequest());
+        return $this->container->get(sprintf('json_rpc.server.%s', $resource))->process($this->getRequest());
     }
 } 

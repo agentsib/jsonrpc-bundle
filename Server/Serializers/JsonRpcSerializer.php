@@ -26,6 +26,8 @@ class JsonRpcSerializer implements JsonRpcSerializerInterface
     {
         if ($request instanceof Request) {
             return @json_decode($request->getContent(), false, 32);
+        } elseif (is_string($request)) {
+            return @json_decode($request, false, 32);
         }
         throw new JsonRpcException(JsonRpcException::ERROR_PARSE_ERROR);
     }
