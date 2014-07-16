@@ -4,24 +4,25 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="agentsib_jsonrpc.serializer.class">AgentSIB\JsonRpcBundle\Server\JsonRpcSerializer</parameter>
-        <parameter key="agentsib_jsonrpc.server.class">AgentSIB\JsonRpcBundle\Server\JsonRpcServer</parameter>
-        <parameter key="agentsib_jsonrpc.router_loader.class">AgentSIB\JsonRpcBundle\Routing\JsonRpcLoader</parameter>
+        <parameter key="json_rpc.serializer.class">AgentSIB\JsonRpcBundle\Server\Serializers\JsonRpcSerializer</parameter>
+        <parameter key="json_rpc.server.class">AgentSIB\JsonRpcBundle\Server\JsonRpcServer</parameter>
+        <parameter key="json_rpc.router_loader.class">AgentSIB\JsonRpcBundle\Routing\JsonRpcLoader</parameter>
     </parameters>
 
     <services>
-        <service id="agentsib_jsonrpc.serializer" class="%agentsib_jsonrpc.serializer.class%">
+        <service id="json_rpc.serializer" class="%json_rpc.serializer.class%">
             <argument type="service" id="service_container" />
         </service>
 
-        <service id="agentsib_jsonrpc.router_loader" class="%agentsib_jsonrpc.router_loader.class%" public="false">
+        <service id="json_rpc.router_loader" class="%json_rpc.router_loader.class%" public="false">
             <tag name="routing.loader" />
         </service>
 
-        <service id="agentsib_jsonrpc.server" class="%agentsib_jsonrpc.server.class%">
+        <service id="json_rpc.server" class="%json_rpc.server.class%">
             <argument type="service" id="service_container" />
-            <argument type="service" id="agentsib_jsonrpc.serializer" />
+            <argument type="service" id="json_rpc.serializer" />
         </service>
+
     </services>
 
 </container>

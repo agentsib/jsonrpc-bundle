@@ -13,4 +13,5 @@ class JsonRpcBundle extends Bundle
         $container->addCompilerPass(new NamespacesCompilerPass());
     }
 
+
 }

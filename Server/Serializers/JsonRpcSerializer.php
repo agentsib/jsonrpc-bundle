@@ -1,12 +1,10 @@
 <?php
 
 
-namespace AgentSIB\JsonRpcBundle\Server;
-
-
+namespace AgentSIB\JsonRpcBundle\Server\Serializers;
 
 use AgentSIB\JsonRpc\JsonRpcException;
-use AgentSIB\JsonRpc\JsonRpcSerializerInterface;
+use AgentSIB\JsonRpc\Serializers\JsonRpcSerializerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

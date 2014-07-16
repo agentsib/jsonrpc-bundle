@@ -9,10 +9,10 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class NamespacesCompilerPass implements CompilerPassInterface {
 
+
     public function process (ContainerBuilder $container)
     {
-
-        $definition = $container->getDefinition('agentsib_jsonrpc.server');
+       /* $definition = $container->getDefinition('agentsib_jsonrpc.server');
 
         foreach ($container->findTaggedServiceIds('jsonrpc.namespace') as $id => $attributes) {
             $class = $container->getDefinition($id)->getClass();
@@ -33,6 +33,6 @@ class NamespacesCompilerPass implements CompilerPassInterface {
 
             $definition->addMethodCall('addToRouting', array($resource, $namespace, $class));
 
-        }
+        }*/
     }
 }
