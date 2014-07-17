@@ -11,6 +11,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 class JsonRpcSerializer implements JsonRpcSerializerInterface
 {
+
+    protected $container;
+
+    function __construct(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
+
     /**
      * @inheritdoc
      */
