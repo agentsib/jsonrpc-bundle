@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class JsonRpcReflection extends BaseJsonRpcReflection{
 
-    private $container;
+    protected $container;
 
     function __construct(ContainerInterface $container)
     {

@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 class JsonRpcController extends Controller{
 
     public function apiAction($resource, $version = 'v1') {
-        return $this->container->get(sprintf('json_rpc.server.%s', $resource))->process($this->getRequest());
+        if (!preg_match('/^v[0-9]+$/', $version)) {
+            throw new \LogicException('Unspecific version');
+        }
+        return $this->container->get(sprintf('json_rpc.server.%s', $resource, substr($version, 1)))->process($this->getRequest());
     }
 } 

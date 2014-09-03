@@ -32,6 +32,7 @@ class JsonRpcExtension extends Extension
             foreach ($config['servers'] AS $id => $server) {
 
                 $container->setParameter('json_rpc.serializer.class', $server['serializer']);
+                $container->setParameter('json_rpc.reflection.class', $server['reflection']);
 
 
                 $definition = new DefinitionDecorator('json_rpc.server');
