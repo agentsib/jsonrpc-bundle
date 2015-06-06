@@ -1,6 +1,7 @@
 {
     "name": "agentsib/jsonrpc-bundle",
     "description": "Symfony2 JsonRpcBundle",
+    "license": "Apache-2.0",
     "type": "symfony-bundle",
     "keywords": ["json", "rpc", "json-rpc", "api"],
     "homepage": "http://github.com/agentsib/jsonrpc-bundle",
